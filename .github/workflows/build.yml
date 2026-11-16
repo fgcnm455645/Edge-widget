@@ -18,7 +18,9 @@ jobs:
       - name: Unzip project
         run: |
           ls -la
-          unzip -q WidgetStackEdge.zip -d proj
+          Z=$(ls *.zip | head -n 1)
+          echo "Using: $Z"
+          unzip -q "$Z" -d proj
           find proj -name settings.gradle.kts
       - name: Build debug APK
         run: |
